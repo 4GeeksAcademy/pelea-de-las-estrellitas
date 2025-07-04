@@ -1,5 +1,9 @@
 import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import React from "react";
+import { CardCharacter } from "../components/CardCharacter.jsx";
+import { CardPlanet } from "../components/CardPlanet.jsx";
+
 
 export const Home = () => {
 
@@ -7,10 +11,10 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5">
-			<h1>Hello Rigo!!</h1>
-			<p>
-				<img src={rigoImageUrl} />
-			</p>
+			<h2>Characters</h2>
+			<CardCharacter />
+			<h2>Planets</h2>
+			<CardPlanet />
 		</div>
 	);
 }; 

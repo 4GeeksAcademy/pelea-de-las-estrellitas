@@ -1,0 +1,31 @@
+.container-img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    text-align: left;
+    align-items: start; 
+    margin-left: auto;
+}
+
+h2{
+    color: red;
+    align-items: start;
+    text-align: left;
+    margin-left: 100px;
+}
+
+.card{
+    width: 18rem;
+    margin-top: 20px;
+    margin-bottom: 60px;
+    margin-left: 100px;
+    background-color: #f8f9fa; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+i{
+    color: orange; 
+    font-size: 24px; 
+    margin-top: 10px; 
+    margin-left: 80px;
+}   

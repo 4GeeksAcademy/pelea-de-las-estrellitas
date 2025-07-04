@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import starWarsImage from "../assets/img/starwars.png";
 
 export const Navbar = () => {
 
@@ -6,11 +7,11 @@ export const Navbar = () => {
 		<nav className="navbar navbar-light bg-light">
 			<div className="container">
 				<Link to="/">
-					<span className="navbar-brand mb-0 h1">React Boilerplate</span>
+					<img src={starWarsImage} alt="Nav Photo" className="container-img" />
 				</Link>
 				<div className="ml-auto">
 					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
+						<button className="btn btn-primary">Favorites</button>
 					</Link>
 				</div>
 			</div>
