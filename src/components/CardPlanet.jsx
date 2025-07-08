@@ -5,6 +5,7 @@ import planeta from "../assets/img/planeta.png";
 
 export const CardPlanet = () => {
   const { store } = useGlobalReducer();
+
   
   
   return (
@@ -13,7 +14,10 @@ export const CardPlanet = () => {
           {store.planets.length === 0 ? (
             <p>Está cargando primo, espera un rato...</p>
           ) : (
-            store.planets.map((planet, index) => (
+            store.planets.map((planet, index) => {
+          
+              
+              return(
               <div className="col-md-3 col-lg-3 mb-4" key={index}>
                 <div className="card h-100">
                   <img src= {planeta}/>
@@ -32,7 +36,7 @@ export const CardPlanet = () => {
                   </div>
                 </div>
               </div>
-            ))
+            )})
           )}
         </div>
       </div>

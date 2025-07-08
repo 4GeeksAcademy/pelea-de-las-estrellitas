@@ -9,6 +9,7 @@ import planetsImage from "../assets/img/planets.png";
 
 
 
+
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
@@ -25,7 +26,7 @@ export const Home = () => {
 
 		getCharacters()
 			.then(data => {
-				dispatch({ type: "setCharacters", payload: data.results });
+				dispatch({ type: "setCharacters", payload: data });
 			})
 			.catch(error => {
 				console.error("Error fetching characters:", error);

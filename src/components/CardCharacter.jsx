@@ -6,6 +6,8 @@ import laser from "../assets/img/laser.png";
 
 export const CardCharacter = () => {
   const { store } = useGlobalReducer();
+  console.log("soy store", store.characters);
+  
 
   return (
     <div className="container my-4">
@@ -36,5 +38,5 @@ export const CardCharacter = () => {
         )}
       </div>
     </div>
-  );
+   );
 };
