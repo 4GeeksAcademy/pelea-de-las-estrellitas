@@ -13,6 +13,7 @@ import planetsImage from "../assets/img/planets.png";
 export const Home = () => {
 
 	const { store, dispatch } = useGlobalReducer()
+	
 
 	useEffect(() => {
 		getPlanets()

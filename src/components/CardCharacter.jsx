@@ -2,23 +2,36 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import laser from "../assets/img/laser.png";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper/modules';
 
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
 
 export const CardCharacter = () => {
   const { store } = useGlobalReducer();
-  console.log("soy store", store.characters);
-  
+
+if (store.characters.length === 0) {
+    return <p>Está cargando primo, espera un rato...</p>;
+  }
 
   return (
     <div className="container my-4">
-      <div className="row">
-        {store.characters.length === 0 ? (
-          <p>Está cargando primo, espera un rato...</p>
-        ) : (
-          store.characters.map((character, index) => (
-            <div className="col-md-3 col-lg-3 mb-4" key={index}>
+          <Swiper
+            slidesPerView={3}
+            spaceBetween={30}
+           /*  pagination={{
+              clickable: true,
+            }}
+            modules={[Pagination]} */
+            className="mySwiper"
+          >
+          {store.characters.map((character, index) => (
+              <SwiperSlide key={index}>
+            <div className="col-md-3 col-lg-3 mb-4" >
               <div className="card h-100">
-                <img src= {laser}/>
+                <img src={laser} />
                 <div className="card-body">
                   <h5 className="card-title">{character.name}</h5>
                   <p className="card-text">
@@ -34,9 +47,9 @@ export const CardCharacter = () => {
                 </div>
               </div>
             </div>
-          ))
-        )}
+              </SwiperSlide>
+          ))}
+              </Swiper>
       </div>
-    </div>
-   );
+  );
 };
