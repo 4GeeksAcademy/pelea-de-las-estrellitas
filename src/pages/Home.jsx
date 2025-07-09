@@ -5,6 +5,7 @@ import { CardPlanet } from "../components/CardPlanet.jsx";
 import { getCharacters, getPlanets } from "../services.jsx";
 import charactersImage from "../assets/img/characters.png";
 import planetsImage from "../assets/img/planets.png";
+import { Details } from "./Details.jsx";
 
 
 
@@ -18,7 +19,9 @@ export const Home = () => {
 	useEffect(() => {
 		getPlanets()
 			.then(data => {
-				dispatch({ type: "setPlanets", payload: data.results });
+				dispatch({ type: "setPlanets", payload: data });
+			
+				
 			})
 			.catch(error => {
 				console.error("Error fetching planets:", error);

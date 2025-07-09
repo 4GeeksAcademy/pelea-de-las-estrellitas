@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import starWarsImage from "../assets/img/starwars.png";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Navbar = () => {
+const { store,dispatch } = useGlobalReducer();
+
 
 	return (
-		<nav className="navbar navbar-light bg-light">
+		<nav className="navbar navbar-light bg-dark">
 			<div className="container">
 				<Link to="/">
 					<img src={starWarsImage} alt="Nav Photo" className="container-img" />
@@ -16,7 +19,20 @@ export const Navbar = () => {
 								Favorites
 							</button>
 							<ul className="dropdown-menu">
-								{/* <li><a className="dropdown-item" href="#">Action</a></li> */}
+								{store.favorites.length > 0 ? (
+									store.favorites.map((favorite, index) => (
+										<li key={index}>
+											<Link className="dropdown-item" to={`/details/${favorite.id}`}>
+												{favorite.name}
+												</Link>
+										</li>
+									))
+								) : (
+										
+										<li className="dropdown-item">
+											No favorites added yet!
+										</li>
+								)}
 							</ul>
 						</div>
 					</Link>

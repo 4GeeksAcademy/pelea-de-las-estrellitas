@@ -1,3 +1,4 @@
+
 body {
     background-image: url("../src/assets/img/fondo.png");
     background-size: cover;
@@ -66,10 +67,17 @@ i{
   color: red;
 } 
 
+.favorite-icon.regular {
+  color: orange;
+} 
+.favorite-icon.solid {
+  color: red;
+}
+
 
 /* De aqui para abajo es todo cosa de luis. */
 .swiper {
-  width: 100%;
+  width: 87%;
 }
 
 .swiper-slide {

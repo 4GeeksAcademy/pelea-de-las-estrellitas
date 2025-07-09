@@ -61,6 +61,15 @@ export default function storeReducer(store, action = {}) {
       };
     }
 
+    case 'add_favorites': {
+
+      return {
+        ...store,
+        favorites: store.favorites.concat(action.payload)
+      };
+    }
+    
+
     default:
       throw Error('Unknown action.');
   }

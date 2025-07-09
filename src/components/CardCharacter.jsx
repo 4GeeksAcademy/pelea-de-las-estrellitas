@@ -4,27 +4,38 @@ import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import laser from "../assets/img/laser.png";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
+import { Details } from "../pages/Details.jsx";
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 export const CardCharacter = () => {
-  const { store } = useGlobalReducer();
+  const { store, dispatch } = useGlobalReducer();
 
 if (store.characters.length === 0) {
     return <p>Está cargando primo, espera un rato...</p>;
   }
+
+function addFavorite(character) {   
+  const isFavorite = store.favorites.some(fav => fav.name === character.name);
+  if (isFavorite) {
+    alert("Ya has agregado este personaje a favoritos");
+  } else {
+    dispatch({
+      type: 'add_favorites',
+      payload: character
+    });
+    alert("Personaje agregado a favoritos");
+  }
+}
+
 
   return (
     <div className="container my-4">
           <Swiper
             slidesPerView={3}
             spaceBetween={30}
-           /*  pagination={{
-              clickable: true,
-            }}
-            modules={[Pagination]} */
             className="mySwiper"
           >
           {store.characters.map((character, index) => (
@@ -43,7 +54,7 @@ if (store.characters.length === 0) {
                   <Link to={`/details/${index + 1}`} className="btn btn-primary">
                     Learn More
                   </Link>
-                  <i className="fa-regular fa-face-grin-hearts float-end mt-2"></i>
+                  <i className="fa-regular fa-face-grin-hearts float-end mt-2" onClick={() => addFavorite(character)} ></i>
                 </div>
               </div>
             </div>
