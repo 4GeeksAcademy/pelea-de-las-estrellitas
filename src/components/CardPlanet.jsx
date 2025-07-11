@@ -4,7 +4,7 @@ import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import planeta from "../assets/img/planeta.png";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import { Details } from "../pages/Details.jsx";
+import { PlanetDetail } from "../pages/PlanetDetail.jsx";
 
 export const CardPlanet = () => {
   const { store, dispatch } = useGlobalReducer();
@@ -15,18 +15,6 @@ if (store.planets.length === 0) {
   }
 /* } */
 
-function addFavorite(planet) {   
-  const isFavorite = store.favorites.some(fav => fav.name === planet.name);
-  if (isFavorite) {
-    alert("Ya has agregado este planeta a favoritos");
-  } else {
-    dispatch({
-      type: 'add_favorites',
-      payload: planet
-    });
-    alert("Planeta agregado a favoritos");
-  }
-}
 
 
   return (
@@ -49,10 +37,10 @@ function addFavorite(planet) {
                     <strong>Rotation:</strong> {planet.properties.rotation_period}<br />
                     <strong>Gravity:</strong> {planet.properties.gravity}
                   </p>
-                  <Link to={`/details/${index + 1}`} className="btn btn-primary">
+                  <Link to={`/planets/${index + 1}`} className="btn btn-primary">
                     Learn More
                   </Link>
-                  <i className="fa-regular fa-face-grin-hearts float-end mt-2" onClick={() => addFavorite(planet)} ></i>
+                  {/* <i className="fa-regular fa-face-grin-hearts float-end mt-2" onClick={() => addFavorite()} ></i> */}
                 </div>
               </div>
             </div>

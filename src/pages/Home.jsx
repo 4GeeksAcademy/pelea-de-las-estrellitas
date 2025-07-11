@@ -5,7 +5,8 @@ import { CardPlanet } from "../components/CardPlanet.jsx";
 import { getCharacters, getPlanets } from "../services.jsx";
 import charactersImage from "../assets/img/characters.png";
 import planetsImage from "../assets/img/planets.png";
-import { Details } from "./Details.jsx";
+import { CharacterDetail } from "./CharacterDetail.jsx";
+import { PlanetDetail } from "./PlanetDetail.jsx";
 
 
 

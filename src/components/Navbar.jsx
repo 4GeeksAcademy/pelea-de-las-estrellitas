@@ -1,10 +1,36 @@
 import { Link } from "react-router-dom";
 import starWarsImage from "../assets/img/starwars.png";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { useEffect } from "react";
 
 export const Navbar = () => {
-const { store,dispatch } = useGlobalReducer();
+	  const { store, dispatch } = useGlobalReducer();
 
+  // Cargar favoritos desde localStorage al montar el componente
+  useEffect(() => {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    dispatch({
+      type: 'setFavorites',
+      payload: favorites
+    });
+  }, []);
+
+  // Eliminar favorito
+  function deleteFavorite(favoriteToDelete) {
+    const updatedFavorites = store.favorites.filter(
+      fav => !(fav.id === favoriteToDelete.id && fav.type === favoriteToDelete.type)
+    );
+
+    dispatch({
+      type: 'setFavorites',
+      payload: updatedFavorites
+    });
+
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    alert("Personaje eliminado de favoritos");
+  }
+
+console.log(store.favorites);
 
 	return (
 		<nav className="navbar navbar-light bg-dark">
@@ -22,16 +48,23 @@ const { store,dispatch } = useGlobalReducer();
 								{store.favorites.length > 0 ? (
 									store.favorites.map((favorite, index) => (
 										<li key={index}>
-											<Link className="dropdown-item" to={`/details/${favorite.id}`}>
-												{favorite.name}
-												</Link>
+											<Link className="dropdown-item" to={`/${favorite.type}/${favorite.id}`}>
+												{favorite.name || "Sin nombre"}
+											</Link>
+											<button
+												onClick={() => deleteFavorite(favorite)}
+												className="btn btn-sm btn-outline-danger ms-2"
+												title="Eliminar favorito"
+											>
+												✖
+											</button>
 										</li>
 									))
 								) : (
-										
-										<li className="dropdown-item">
-											No favorites added yet!
-										</li>
+
+									<li className="dropdown-item">
+										No favorites added yet!
+									</li>
 								)}
 							</ul>
 						</div>

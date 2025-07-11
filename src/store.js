@@ -61,7 +61,7 @@ export default function storeReducer(store, action = {}) {
       };
     }
 
-    case 'add_favorites': {
+    case 'setFavorites': {
 
       return {
         ...store,
