@@ -6,32 +6,30 @@ import { useEffect } from "react";
 export const Navbar = () => {
 	  const { store, dispatch } = useGlobalReducer();
 
-  // Cargar favoritos desde localStorage
-  useEffect(() => {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    dispatch({
-      type: 'setFavorites',
-      payload: favorites
-    });
-  }, []);
+useEffect(() => {
+// Cargar favoritos desde localStorage al iniciar
+  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  console.log(favorites);
+},[])
+  
+console.log(store.favorites);  
 
-  // Eliminar favorito
+/* // Eliminar favorito
   function deleteFavorite(favoriteToDelete) {
+// Hacemos filter para eliminar el favorito seleccionado y mantener el resto	
     const updatedFavorites = store.favorites.filter(
       fav => !(fav.id === favoriteToDelete.id && fav.type === favoriteToDelete.type)
     );
-
+// Actualizo los favoritos 
     dispatch({
       type: 'setFavorites',
       payload: updatedFavorites
     });
-
+//Guardo lo actualizado en LocalStorage
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     alert("Personaje eliminado de favoritos");
   }
-
-console.log(store.favorites);
-
+*/
 	return (
 		<nav className="navbar navbar-light bg-dark">
 			<div className="container">

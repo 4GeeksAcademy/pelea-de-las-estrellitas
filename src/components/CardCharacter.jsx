@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { json, Link } from "react-router-dom";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import laser from "../assets/img/laser.png";
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -17,31 +17,33 @@ if (store.characters.length === 0) {
     return <p>Está cargando primo, espera un rato...</p>;
   }
 
-function addFavorite(character, type, id) {
+function addFavorite(character, id) {
   let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
   // Evitar duplicados por name+type+id
-  const exists = favorites.some(fav => fav.id === id && fav.type === type);
+  /* const exists = favorites.some(fav => fav.id === id && fav.type === type);
   if (exists) {
     console.log('Este ítem ya está en favoritos.');
     return;
   }
-
+*/
   const newFavorite = {
-    name: character.properties.name,
-    id,
-    type
+    name: character,
+    id: id
   };
+  console.log("Nuevo favorito:", newFavorite);
 
   favorites.push(newFavorite);
+  
   localStorage.setItem('favorites', JSON.stringify(favorites));
-
+  console.log(favorites);
   
   dispatch({
     type: 'setFavorites',
     payload: favorites
   });
-}
+} 
+console.log(store.favorites);
 
 
 
@@ -52,8 +54,8 @@ function addFavorite(character, type, id) {
             spaceBetween={30}
             className="mySwiper"
           >
-          {store.characters.map((character, index) => (
-              <SwiperSlide key={index}>
+          {store.characters.map((character) => (
+              <SwiperSlide key={character.uid}>
             <div className="col-md-3 col-lg-3 mb-4" >
               <div className="card h-100">
                 <img src={laser} />
@@ -65,10 +67,10 @@ function addFavorite(character, type, id) {
                     <strong>Height:</strong> {character.properties.height}<br />
                     <strong>Mass:</strong> {character.properties.mass}
                   </p>
-                  <Link to={`/people/${index + 1}`} className="btn btn-primary">
+                  <Link to={`/people/${character.uid}`} className="btn btn-primary">
                     Learn More
                   </Link>
-                  <i className="fa-regular fa-face-grin-hearts float-end mt-2" onClick={() => addFavorite( character, 'people', index + 1 )} ></i>
+                  <i className="fa-regular fa-face-grin-hearts float-end mt-2" onClick={() => addFavorite( character.properties.name, character.uid )} ></i>
                 </div>
               </div>
             </div>
