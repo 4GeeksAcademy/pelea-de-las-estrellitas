@@ -36,7 +36,7 @@ function addFavorite(character, type, id) {
   favorites.push(newFavorite);
   localStorage.setItem('favorites', JSON.stringify(favorites));
 
-  // Además despacha para sincronizar con el store global (si usas redux o contexto)
+  
   dispatch({
     type: 'setFavorites',
     payload: favorites

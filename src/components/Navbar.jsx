@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export const Navbar = () => {
 	  const { store, dispatch } = useGlobalReducer();
 
-  // Cargar favoritos desde localStorage al montar el componente
+  // Cargar favoritos desde localStorage
   useEffect(() => {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     dispatch({
@@ -49,7 +49,7 @@ console.log(store.favorites);
 									store.favorites.map((favorite, index) => (
 										<li key={index}>
 											<Link className="dropdown-item" to={`/${favorite.type}/${favorite.id}`}>
-												{favorite.name || "Sin nombre"}
+												{favorite.name}
 											</Link>
 											<button
 												onClick={() => deleteFavorite(favorite)}

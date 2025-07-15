@@ -73,7 +73,134 @@ i{
 .favorite-icon.solid {
   color: red;
 }
+.planet-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
 
+.planet-card {
+    background: rgba(20, 20, 25, 0.85);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px greenyellow;
+    color: white;
+    max-width: 500px;
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.planet-card:hover {
+    transform: scale(1.02);
+}
+
+.planet-name {
+    font-size: 2.5rem;
+    color: greenyellow;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid greenyellow;
+    padding-bottom: 0.5rem;
+}
+
+.planet-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.planet-info li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.planet-info strong {
+    color: #ffd700;
+}
+
+.planet-image {
+    flex: 1;
+    min-height: 400px;
+    background-image: url('../src/assets/img/planeta.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px pink;
+}
+
+.planet-loading,
+.planet-error {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    color: #ff5e5e;
+}
+.character-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.character-card {
+    background: rgba(25, 25, 30, 0.9);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 25px greenyellow;
+    max-width: 500px;
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover {
+    transform: scale(1.02);
+}
+
+.character-name {
+    font-size: 2.5rem;
+    color: greenyellow;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid greenyellow;
+    padding-bottom: 0.5rem;
+}
+
+.character-info {
+    list-style: none;
+    color: white; 
+    padding: 0;
+    margin: 0;
+}
+
+.character-info li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.character-info strong {
+    color: #ffd700;
+}
+
+.character-image {
+    flex: 1;
+    min-height: 400px;
+    background-image: url('../src/assets/img/laser.png'); 
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px blue;
+}
+
+.character-loading,
+.character-error {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    color: #ff5e5e;
+}
 
 /* De aqui para abajo es todo cosa de luis. */
 .swiper {

@@ -19,17 +19,21 @@ export function PlanetDetail() {
             });
     }, [id]);
 
-    if (loading) return <p>Loading...</p>;
-    if (!planet) return <p>planet not found.</p>;
+    if (loading) return <p>Cargando...</p>;
+    if (!planet) return <p>No se ha encontrado el planeta que buscas...</p>;
 
-    return (
-        <div>
-            <h1>{planet.properties.name}</h1>
-            <strong>Diameter:</strong> {planet.properties.diameter}<br />
-            <strong>Climante:</strong> {planet.properties.climate}<br />
-            <strong>Rotation:</strong> {planet.properties.rotation_period}<br />
-            <strong>Gravity:</strong> {planet.properties.gravity}
+       return (
+        <div className="planet-detail-container">
+            <div className="planet-card">
+                <h1 className="planet-name">{planet.properties.name}</h1>
+                <ul className="planet-info">
+                    <li><strong>Diámetro:</strong> {planet.properties.diameter}</li>
+                    <li><strong>Clima:</strong> {planet.properties.climate}</li>
+                    <li><strong>Rotación:</strong> {planet.properties.rotation_period}</li>
+                    <li><strong>Gravedad:</strong> {planet.properties.gravity}</li>
+                </ul>
+            </div>
+            <div className="planet-image"></div>
         </div>
     );
 }
-

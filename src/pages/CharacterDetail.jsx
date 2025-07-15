@@ -21,19 +21,24 @@ export function CharacterDetail() {
       });
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
-  if (!character) return <p>Character not found.</p>;
+  if (loading) return <p>Cargando...</p>;
+  if (!character) return <p>No se ha encontrado el personaje que buscas...</p>;
 
-  return (
-    <div>
-      <h1>{character.properties.name}</h1>
-      <p><strong>Gender:</strong> {character.properties.gender}</p>
-      <p><strong>Birth year:</strong> {character.properties.birth_year}</p>
-      <p><strong>Height:</strong> {character.properties.height}</p>
-      <p><strong>Mass:</strong> {character.properties.mass}</p>
-      <p><strong>Hair Color:</strong> {character.properties.hair_color}</p>
-      <p><strong>Eye Color:</strong> {character.properties.eye_color}</p>
-      <p><strong>Skin Color:</strong> {character.properties.skin_color}</p>
+ return (
+    <div className="character-detail-container">
+      <div className="character-card">
+        <h1 className="character-name">{character.properties.name}</h1>
+        <ul className="character-info">
+          <li><strong>Género:</strong> {character.properties.gender}</li>
+          <li><strong>Año de nacimiento:</strong> {character.properties.birth_year}</li>
+          <li><strong>Altura:</strong> {character.properties.height} cm</li>
+          <li><strong>Masa:</strong> {character.properties.mass} kg</li>
+          <li><strong>Color de pelo:</strong> {character.properties.hair_color}</li>
+          <li><strong>Color de ojos:</strong> {character.properties.eye_color}</li>
+          <li><strong>Color de piel:</strong> {character.properties.skin_color}</li>
+        </ul>
+      </div>
+      <div className="character-image"></div>
     </div>
   );
 }
