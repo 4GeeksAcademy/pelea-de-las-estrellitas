@@ -9,11 +9,11 @@ import { PlanetDetail } from "../pages/PlanetDetail.jsx";
 export const CardPlanet = () => {
   const { store, dispatch } = useGlobalReducer();
 
- /*  useEffect(() => { */
+
 if (store.planets.length === 0) {
     return <p>Está cargando primo, espera un rato...</p>;
   }
-/* } */
+
 
 
 

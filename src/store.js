@@ -1,9 +1,18 @@
-export const initialStore=()=>{
-  return{
+export const initialStore = () => {
+  let favorites = [];
+  try {
+    const storeFavorites = localStorage.getItem('favorites');
+    if (storeFavorites) {
+      favorites = JSON.parse(storeFavorites);
+    }
+  } catch (error) {
+    favorites = [];
+  }
+  return {
     message: null,
     characters: [],
     planets: [],
-    favorites: [],
+    favorites: favorites,
     todos: [
     /*   {
         id: 1,
@@ -21,17 +30,17 @@ export const initialStore=()=>{
 
 
 export default function storeReducer(store, action = {}) {
-  switch(action.type){
-   /*  case 'add_task':
+  switch (action.type) {
+    /*  case 'add_task':
+ 
+       const { id,  color } = action.payload
+ 
+       return {
+         ...store,
+         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
+       }; */
 
-      const { id,  color } = action.payload
-
-      return {
-        ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
-      }; */
-
-       case 'get_characters': {
+    case 'get_characters': {
       const { character } = action.payload;
       return {
         ...store,
@@ -53,7 +62,7 @@ export default function storeReducer(store, action = {}) {
       };
     }
 
-    case 'get_planets': { 
+    case 'get_planets': {
       const { planet } = action.payload;
       return {
         ...store,
@@ -68,7 +77,7 @@ export default function storeReducer(store, action = {}) {
         favorites: action.payload
       };
     }
-    
+
 
     default:
       throw Error('Unknown action.');

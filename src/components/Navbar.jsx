@@ -6,15 +6,9 @@ import { useEffect } from "react";
 export const Navbar = () => {
 	  const { store, dispatch } = useGlobalReducer();
 
-useEffect(() => {
-// Cargar favoritos desde localStorage al iniciar
-  const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  console.log(favorites);
-},[])
-  
-console.log(store.favorites);  
 
-/* // Eliminar favorito
+
+// Eliminar favorito
   function deleteFavorite(favoriteToDelete) {
 // Hacemos filter para eliminar el favorito seleccionado y mantener el resto	
     const updatedFavorites = store.favorites.filter(
@@ -29,7 +23,7 @@ console.log(store.favorites);
     localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
     alert("Personaje eliminado de favoritos");
   }
-*/
+
 	return (
 		<nav className="navbar navbar-light bg-dark">
 			<div className="container">
@@ -37,7 +31,6 @@ console.log(store.favorites);
 					<img src={starWarsImage} alt="Nav Photo" className="container-img" />
 				</Link>
 				<div className="ml-auto">
-					<Link to="/demo">
 						<div className="dropdown-center">
 							<button className="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Favorites
@@ -66,7 +59,6 @@ console.log(store.favorites);
 								)}
 							</ul>
 						</div>
-					</Link>
 				</div>
 			</div>
 		</nav>
