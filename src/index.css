@@ -1,0 +1,289 @@
+
+body {
+    background-image: url("../src/assets/img/night.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+}
+.container-img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    text-align: left;
+    align-items: center; 
+    margin-left: auto;
+}
+
+h2{
+    color: greenyellow;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: xx-large;
+}
+
+.card{
+    width: 22rem;
+    height: 38rem;
+    background-color: white;
+    border: none;  
+}
+i{
+    color: orange; 
+    font-size: 24px; 
+    margin-top: 10px; 
+    margin-left: 50px;
+    margin-right: 50px;
+}   
+
+.btn.btn-primary {
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-weight: 500;
+  background-color: #0d6efd;
+  transition: background-color 0.3s ease;
+}
+
+.btn.btn-primary:hover {
+  background-color: #0b5ed7;
+}
+
+.fa-face-grin-hearts {
+  color: orange;
+  font-size: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.fa-face-grin-hearts:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+}
+.card-body {
+  padding: 1.5rem;
+  background-color: black;
+  color: white;
+}
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: greenyellow ;
+} 
+
+.favorite-icon.regular {
+  color: orange;
+} 
+.favorite-icon.solid {
+  color: red;
+}
+.planet-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.planet-card {
+    background: rgba(20, 20, 25, 0.85);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px greenyellow;
+    color: white;
+    max-width: 500px;
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.planet-card:hover {
+    transform: scale(1.02);
+}
+
+.planet-name {
+    font-size: 2.5rem;
+    color: greenyellow;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid greenyellow;
+    padding-bottom: 0.5rem;
+}
+
+.planet-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.planet-info li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.planet-info strong {
+    color: #ffd700;
+}
+
+.planet-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px greenyellow;
+    width: 100px;
+    height: 700px;
+}
+
+.vehicle-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.vehicle-card {
+    background: rgba(20, 20, 25, 0.85);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px greenyellow;
+    color: white;
+    max-width: 500px;
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: scale(1.02);
+}
+
+.vehicle-name {
+    font-size: 2.5rem;
+    color: greenyellow;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid greenyellow;
+    padding-bottom: 0.5rem;
+}
+
+.vehicle-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vechicle-info li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.vehicle-info strong {
+    color: #ffd700;
+}
+
+.vehicle-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px greenyellow;
+    width: 100px;
+    height: 700px;
+}
+
+.planet-loading,
+.planet-error {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    color: #ff5e5e;
+}
+.character-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.character-card {
+    background: rgba(25, 25, 30, 0.9);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 25px greenyellow;
+    max-width: 500px;
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.character-card:hover {
+    transform: scale(1.02);
+}
+
+.character-name {
+    font-size: 2.5rem;
+    color: greenyellow;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid greenyellow;
+    padding-bottom: 0.5rem;
+}
+
+.character-info {
+    list-style: none;
+    color: white; 
+    padding: 0;
+    margin: 0;
+}
+
+.character-info li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.character-info strong {
+    color: #ffd700;
+}
+
+.character-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px greenyellow;
+    width: 100px;
+    height: 700px;
+}
+
+.character-loading,
+.character-error {
+    text-align: center;
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    color: #ff5e5e;
+}
+
+/* De aqui para abajo es todo cosa de luis. */
+.swiper {
+  width: 86%;
+  height: 80%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: black;
+  border-radius: 10px;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
