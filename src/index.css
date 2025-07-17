@@ -1,6 +1,6 @@
 
 body {
-    background-image: url("../src/assets/img/fondo.png");
+    background-image: url("../src/assets/img/night.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -26,7 +26,7 @@ h2{
 
 .card{
     width: 22rem;
-    height: 40rem;
+    height: 38rem;
     background-color: white;
     border: none;  
 }
@@ -60,11 +60,15 @@ i{
   cursor: pointer;
   transform: scale(1.2);
 }
-
+.card-body {
+  padding: 1.5rem;
+  background-color: black;
+  color: white;
+}
 .card-title {
   font-size: 1.25rem;
   font-weight: bold;
-  color: red;
+  color: greenyellow ;
 } 
 
 .favorite-icon.regular {
@@ -122,12 +126,69 @@ i{
 
 .planet-image {
     flex: 1;
-    min-height: 400px;
-    background-image: url('../src/assets/img/planeta.png');
     background-size: cover;
     background-position: center;
     border-radius: 1rem;
-    box-shadow: 0 0 30px pink;
+    box-shadow: 0 0 30px greenyellow;
+    width: 100px;
+    height: 700px;
+}
+
+.vehicle-detail-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.vehicle-card {
+    background: rgba(20, 20, 25, 0.85);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px greenyellow;
+    color: white;
+    max-width: 500px;
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover {
+    transform: scale(1.02);
+}
+
+.vehicle-name {
+    font-size: 2.5rem;
+    color: greenyellow;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid greenyellow;
+    padding-bottom: 0.5rem;
+}
+
+.vehicle-info {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vechicle-info li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.vehicle-info strong {
+    color: #ffd700;
+}
+
+.vehicle-image {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    box-shadow: 0 0 30px greenyellow;
+    width: 100px;
+    height: 700px;
 }
 
 .planet-loading,
@@ -186,12 +247,12 @@ i{
 
 .character-image {
     flex: 1;
-    min-height: 400px;
-    background-image: url('../src/assets/img/laser.png'); 
     background-size: cover;
     background-position: center;
     border-radius: 1rem;
-    box-shadow: 0 0 30px blue;
+    box-shadow: 0 0 30px greenyellow;
+    width: 100px;
+    height: 700px;
 }
 
 .character-loading,
@@ -204,13 +265,14 @@ i{
 
 /* De aqui para abajo es todo cosa de luis. */
 .swiper {
-  width: 87%;
+  width: 86%;
+  height: 80%;
 }
 
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: white;
+  background: black;
   border-radius: 10px;
 
   /* Center slide text vertically */

@@ -38,7 +38,7 @@ export function CharacterDetail() {
           <li><strong>Color de piel:</strong> {character.properties.skin_color}</li>
         </ul>
       </div>
-      <div className="character-image"></div>
+      <img src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/characters/${character.uid}.jpg`} className='character-image'/>
     </div>
   );
 }

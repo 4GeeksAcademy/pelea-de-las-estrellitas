@@ -32,3 +32,20 @@ export async function getPlanets() {
         throw error;
     }  
 }   
+
+export async function getVehicles() {
+    try {
+        const response = await fetch('https://www.swapi.tech/api/vehicles/?expanded=true');
+        
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        return data.results;
+        
+    } catch (error) {
+        console.error('Error fetching vehicles:', error);
+        throw error;
+    }  
+}
+

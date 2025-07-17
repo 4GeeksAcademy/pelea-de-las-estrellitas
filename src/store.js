@@ -12,33 +12,15 @@ export const initialStore = () => {
     message: null,
     characters: [],
     planets: [],
+    vehicles: [],
     favorites: favorites,
-    todos: [
-    /*   {
-        id: 1,
-        title: "Make the bed",
-        background: null,
-      },
-      {
-        id: 2,
-        title: "Do my homework",
-        background: null,
-      } */,
-    ]
+   
   }
 }
 
 
 export default function storeReducer(store, action = {}) {
   switch (action.type) {
-    /*  case 'add_task':
- 
-       const { id,  color } = action.payload
- 
-       return {
-         ...store,
-         todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
-       }; */
 
     case 'get_characters': {
       const { character } = action.payload;
@@ -67,6 +49,20 @@ export default function storeReducer(store, action = {}) {
       return {
         ...store,
         planets: [...store.planets, planet]
+      };
+    }
+
+    case 'get_vehicles': {
+      const { vehicle } = action.payload;
+      return {
+        ...store,
+        vehicles: [...store.vehicles, vehicle]
+      };
+    }
+    case 'setVehicles': {
+      return {
+        ...store,
+        vehicles: action.payload
       };
     }
 

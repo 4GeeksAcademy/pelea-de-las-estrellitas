@@ -4,25 +4,25 @@ import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import laser from "../assets/img/laser.png";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper/modules';
-import { CharacterDetail } from "../pages/CharacterDetail.jsx";
+import { VehicleDetail } from "../pages/VehicleDetail.jsx";
 
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-export const CardCharacter = () => {
+export const CardVehicle = () => {
   const { store, dispatch } = useGlobalReducer();
 
-  if (store.characters.length === 0) {
+  if (store.vehicles.length === 0) {
     return <p>Está cargando primo, espera un rato...</p>;
   }
 
-  function addFavorite(character, id) {
+  function addFavorite(vehicle, id) {
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
     
     const newFavorite = {
-      name: character,
+      name: vehicle,
       id: id
     };
     console.log("Nuevo favorito:", newFavorite);
@@ -47,23 +47,23 @@ export const CardCharacter = () => {
         spaceBetween={30}
         className="mySwiper"
       >
-        {store.characters.map((character) => (
-          <SwiperSlide key={character.uid}>
+        {store.vehicles.map((vehicle) => (
+          <SwiperSlide key={vehicle.uid}>
             <div className="col-md-3 col-lg-3 mb-4" >
               <div className="card h-100">
-                <img src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/characters/${character.uid}.jpg`} />
+                <img src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/vehicles/${vehicle.uid}.jpg`} />
                 <div className="card-body">
-                  <h5 className="card-title">{character.properties.name}</h5>
+                  <h5 className="card-title">{vehicle.properties.name}</h5>
                   <p className="card-text">
-                    <strong>Gender:</strong> {character.properties.gender}<br />
-                    <strong>Birth year:</strong> {character.properties.birth_year}<br />
-                    <strong>Height:</strong> {character.properties.height}<br />
-                    <strong>Mass:</strong> {character.properties.mass}
+                    <strong>Model:</strong> {vehicle.properties.model}<br />
+                    <strong>Cost:</strong> {vehicle.properties.cost_in_credits}<br />
+                    <strong>Lenght:</strong> {vehicle.properties.length}<br />
+                    <strong>Passengers:</strong> {vehicle.properties.passengers}
                   </p>
-                  <Link to={`/people/${character.uid}`} className="btn btn-success">
+                  <Link to={`/vehicles/${vehicle.uid}`} className="btn btn-success">
                     Learn More
                   </Link>
-                  <i className="fa-regular fa-face-grin-hearts float-end mt-2" onClick={() => addFavorite(character.properties.name, character.uid)} ></i>
+                  <i className="fa-regular fa-face-grin-hearts float-end mt-2" onClick={() => addFavorite(vehicle.properties.name, vehicle.uid)} ></i>
                 </div>
               </div>
             </div>

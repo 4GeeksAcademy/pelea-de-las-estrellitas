@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import lilo from "../assets/img/lilo.jpg";
 
 export function PlanetDetail() {
     const { id } = useParams();
@@ -33,7 +34,9 @@ export function PlanetDetail() {
                     <li><strong>Gravedad:</strong> {planet.properties.gravity}</li>
                 </ul>
             </div>
-            <div className="planet-image"></div>
+            <img src={`https://raw.githubusercontent.com/tbone849/star-wars-guide/refs/heads/master/build/assets/img/planets/${planet.uid}.jpg`} className="planet-image" 
+            onError={(e) => { e.target.src = lilo; }}
+            />
         </div>
     );
 }
